@@ -1,5 +1,5 @@
-%define	version 0.5.3
-%define rel	2
+%define	version 0.6.0
+%define rel	1
 %define	release	%mkrel %rel
 %define Summary An application for creating stopmotion animations
 
@@ -50,6 +50,8 @@ install -m644 stopmotion.desktop -D %{buildroot}%{_datadir}/applications/%{name}
 install -m644 graphics/stopmotion.png -D %{buildroot}%{_iconsdir}/%{name}.png
 install -m644 graphics/stopmotion-16.png -D %{buildroot}%{_miconsdir}/%{name}.png
 install -m644 graphics/stopmotion-48.png -D %{buildroot}%{_liconsdir}/%{name}.png
+install -m644 graphics/stopmotion.png -D %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+install -m644 graphics/stopmotion-16.png -D %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 
 mkdir -p %{buildroot}%{_menudir}
 cat << EOF > %{buildroot}%{_menudir}/%{name}
@@ -91,6 +93,5 @@ rm -rf $%{buildroot}
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
-
-
-
+%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+%{_iconsdir}/hicolor/16x16/apps/%{name}.png
