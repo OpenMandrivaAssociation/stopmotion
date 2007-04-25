@@ -1,5 +1,5 @@
 %define	version 0.6.0
-%define rel	1
+%define rel	2
 %define	release	%mkrel %rel
 %define Summary An application for creating stopmotion animations
 
