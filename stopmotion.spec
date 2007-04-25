@@ -16,6 +16,7 @@ BuildRequires:	SDL_image-devel
 BuildRequires:  libvorbis-devel
 BuildRequires:  libxml2-devel 
 BuildRequires:  libtar-devel 
+BuildRequires:	qt3-devel
 BuildRequires:  qt4-devel
 BuildRequires:  qt4-linguist 
 BuildRequires:  ImageMagick
