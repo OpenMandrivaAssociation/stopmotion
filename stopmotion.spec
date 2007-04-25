@@ -71,7 +71,7 @@ desktop-file-install	--vendor="" \
 
 # Localization.
 # Uses a weird localization system, got to hardcode it *sigh* :)
-%{_libdir}/qt4/bin/lrelease stopmotion.pro
+/usr/lib/qt4/bin/lrelease stopmotion.pro
 mkdir -p %{buildroot}%{_datadir}/%{name}/translations/
 install -m644 ./translations/*.qm %{buildroot}%{_datadir}/%{name}/translations/
 
