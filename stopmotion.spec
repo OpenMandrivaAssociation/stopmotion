@@ -34,7 +34,7 @@ to different video formats such as mpeg or avi.
 # Wrong permissions
 chmod -R a+r *
 for a in `find ./manual/`; do if [ ! -d $a ]; then chmod 644 $a;else chmod 755 $a;fi;done
-%configure	--with-html-dir=%{_datadir}/doc/%{name}-%{version}/manual
+PATH=/usr/lib/qt4/bin:$PATH %configure	--with-html-dir=%{_datadir}/doc/%{name}-%{version}/manual
 perl -pi -e "s#-pipe -O2#%{optflags}#g" Makefile
 PATH=/usr/lib/qt4/bin:$PATH %make
 # Generate icons. The 48x48 one might be a bit ugly, but it'll have to do
