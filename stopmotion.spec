@@ -1,5 +1,5 @@
 %define	version 0.6.0
-%define rel	2
+%define rel	3
 %define	release	%mkrel %rel
 %define Summary An application for creating stopmotion animations
 
@@ -20,7 +20,6 @@ BuildRequires:  qt4-devel
 BuildRequires:  qt4-linguist 
 BuildRequires:  ImageMagick
 BuildRequires:  gamin-devel
-BuildConflicts:	qt3-devel
 
 %description
 Stopmotion is a free application for creating stop-motion animation movies.
@@ -37,7 +36,7 @@ chmod -R a+r *
 for a in `find ./manual/`; do if [ ! -d $a ]; then chmod 644 $a;else chmod 755 $a;fi;done
 %configure	--with-html-dir=%{_datadir}/doc/%{name}-%{version}/manual
 perl -pi -e "s#-pipe -O2#%{optflags}#g" Makefile
-export PATH=$PATH:/usr/lib/qt4/bin
+export PATH=/usr/lib/qt4/bin:$PATH
 %make
 # Generate icons. The 48x48 one might be a bit ugly, but it'll have to do
 convert graphics/stopmotion.png -resize 16x16 graphics/stopmotion-16.png
