@@ -10,6 +10,7 @@ Release:	%{release}
 Source0:	http://developer.skolelinux.no/info/studentgrupper/2005-hig-stopmotion/project_management/webpage/releases/%{name}-%{version}.tar.bz2
 URL:		http://stopmotion.bjoernen.com/
 Group:		Video
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	GPL
 BuildRequires:	SDL_image-devel 
 BuildRequires:  libvorbis-devel
