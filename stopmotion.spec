@@ -53,12 +53,6 @@ install -m644 graphics/stopmotion-48.png -D %{buildroot}%{_liconsdir}/%{name}.pn
 install -m644 graphics/stopmotion.png -D %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
 install -m644 graphics/stopmotion-16.png -D %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 
-mkdir -p %{buildroot}%{_menudir}
-cat << EOF > %{buildroot}%{_menudir}/%{name}
-?package(%{name}):command="%{name}"\
- icon="%{name}.png" needs="X11" section="Multimedia/Video"\
-  title="Stopmotion" longtitle="%{Summary}" xdg="true"
-EOF
 
 desktop-file-install	--vendor="" \
 			--remove-category="Application" \
@@ -89,7 +83,6 @@ rm -rf $%{buildroot}
 %{_bindir}/*
 %{_datadir}/applications/%{name}
 %{_datadir}/%{name}/*
-%{_menudir}/%{name}
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
