@@ -68,11 +68,15 @@ desktop-file-install	--vendor="" \
 mkdir -p %{buildroot}%{_datadir}/%{name}/translations/
 install -m644 ./translations/*.qm %{buildroot}%{_datadir}/%{name}/translations/
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
+%endif
 
 %clean 
 rm -rf $%{buildroot}
