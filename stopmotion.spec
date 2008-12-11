@@ -19,7 +19,7 @@ BuildRequires:  libtar-devel
 BuildRequires:	inotifytools-devel
 BuildRequires:  qt4-devel
 BuildRequires:  qt4-linguist
-BuildRequires:  ImageMagick
+BuildRequires:  imagemagick
 BuildRequires:  gamin-devel
 
 %description
