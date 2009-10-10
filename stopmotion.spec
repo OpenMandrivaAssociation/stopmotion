@@ -1,5 +1,5 @@
 %define	version 0.6.2
-%define rel	2
+%define rel	3
 %define	release	%mkrel %rel
 %define Summary An application for creating stopmotion animations
 
@@ -21,6 +21,7 @@ BuildRequires:  qt4-devel
 BuildRequires:  qt4-linguist
 BuildRequires:  imagemagick
 BuildRequires:  gamin-devel
+Requires:	vgrabbj
 
 %description
 Stopmotion is a free application for creating stop-motion animation movies.
