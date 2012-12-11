@@ -1,6 +1,6 @@
 %define	version 0.6.2
 %define rel	3
-%define	release	%mkrel %rel
+%define	release	%rel
 %define Summary An application for creating stopmotion animations
 
 Name:		stopmotion
@@ -8,19 +8,20 @@ Summary:	%{Summary}
 Version:	%{version} 
 Release:	%{release} 
 Source0:	http://developer.skolelinux.no/info/studentgrupper/2005-hig-stopmotion/project_management/webpage/releases/%{name}-%{version}.tar.gz
+Patch0:		add-unistd.patch
+Patch1:		add-x11-lib.patch
 URL:		http://stopmotion.bjoernen.com/
 Group:		Video
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	GPL
-BuildRequires:	SDL_image-devel
-BuildRequires:  libvorbis-devel
-BuildRequires:  libxml2-devel
+BuildRequires:	pkgconfig(SDL_image)
+BuildRequires:  pkgconfig(vorbis)
+BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  libtar-devel
 BuildRequires:	inotifytools-devel
 BuildRequires:  qt4-devel
 BuildRequires:  qt4-linguist
 BuildRequires:  imagemagick
-BuildRequires:  gamin-devel
+BuildRequires:  pkgconfig(gamin)
 Requires:	vgrabbj
 
 %description
@@ -31,6 +32,8 @@ to different video formats such as mpeg or avi.
 
 %prep
 %setup -q
+%patch0 -p1 
+%patch1 -p1 
 
 %build
 # Wrong permissions
@@ -39,13 +42,11 @@ for a in `find ./manual/`; do if [ ! -d $a ]; then chmod 644 $a;else chmod 755 $
 %configure2_5x --with-html-dir=%{_datadir}/doc/%{name}/manual
 rm -f Makefile
 %qmake_qt4
+
 %make
 # Generate icons. The 48x48 one might be a bit ugly, but it'll have to do
 convert graphics/stopmotion.png -resize 16x16 graphics/stopmotion-16.png
 convert graphics/stopmotion.png -resize 48x48 graphics/stopmotion-48.png
-
-%install
-rm -rf %{buildroot}
 
 make install INSTALL_ROOT=%buildroot
 install -m755 stopmotion -D %{buildroot}%{_bindir}/%{name}
@@ -65,18 +66,6 @@ desktop-file-install	--vendor="" \
 			--add-category="X-MandrivaLinux-Multimedia-Video" \
 			--dir %{buildroot}%{_datadir}/applications %name.desktop
 
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
-
-%clean 
-rm -rf $%{buildroot}
 
 %files
 %defattr(-,root,root)
@@ -89,3 +78,4 @@ rm -rf $%{buildroot}
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/hicolor/32x32/apps/%{name}.png
 %{_iconsdir}/hicolor/16x16/apps/%{name}.png
+
