@@ -41,9 +41,6 @@ lrelease translations/*
 %qmake_qt4 PREFIX=%{_prefix}
 
 %make
-# Generate icons. The 48x48 one might be a bit ugly, but it'll have to do
-convert graphics/stopmotion.png -resize 16x16 graphics/stopmotion-16.png
-convert graphics/stopmotion.png -resize 48x48 graphics/stopmotion-48.png
 
 %install
 make install INSTALL_ROOT=%{buildroot}
