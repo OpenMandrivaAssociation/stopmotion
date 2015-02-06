@@ -1,7 +1,7 @@
 Summary:	An application for creating stopmotion animations
 Name:		stopmotion
 Version:	0.7.2
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Video
 Url:		http://stopmotion.bjoernen.com/
