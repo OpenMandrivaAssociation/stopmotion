@@ -4,7 +4,7 @@ Version:	0.7.2
 Release:	2
 License:	GPLv2+
 Group:		Video
-Url:		http://stopmotion.bjoernen.com/
+Url:		https://stopmotion.bjoernen.com/
 Source0:	http://developer.skolelinux.no/info/studentgrupper/2005-hig-stopmotion/project_management/webpage/releases/%{name}-%{version}.tar.gz
 BuildRequires:	librsvg
 BuildRequires:	qt4-linguist
